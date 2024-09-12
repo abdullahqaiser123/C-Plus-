@@ -1,0 +1,49 @@
+#include <iostream>
+using namespace std;
+class Vehicle {
+    int year;
+    string manufacturer;
+    int speed;
+    int wheels;
+public:
+    Vehicle(int y, string m, int w) {
+        year = y;
+        manufacturer = m;
+        speed = 0;
+        wheels = w;
+    }
+    void accelerate() {
+        speed += 5;
+    }
+    void brake() {
+        speed -= 5;
+    }
+    int getSpeed() {
+        return speed;
+    }
+    int getWheels() {
+        return wheels;
+    }
+};
+int main() {
+	
+    Vehicle bike(2023, "Superstar", 2);
+    Vehicle rickshaw(2019, "Rozgar", 3);
+    for (int i = 0; i < 5; i++) {
+        bike.accelerate();
+        cout << "Bike speed after acceleration " << i + 1 << ": " << bike.getSpeed() << endl;
+    }
+    for (int i = 0; i < 5; i++) {
+        rickshaw.accelerate();
+        cout << "Rickshaw speed after acceleration " << i + 1 << ": " << rickshaw.getSpeed() << endl;
+    }
+    for (int i = 0; i < 2; i++) {
+        bike.brake();
+        cout << "Bike speed after brake " << i + 1 << ": " << bike.getSpeed() << endl;
+    }
+    for (int i = 0; i < 2; i++) {
+        rickshaw.brake();
+        cout << "Rickshaw speed after brake " << i + 1 << ": " << rickshaw.getSpeed() << endl;
+    }
+    return 0;
+}
